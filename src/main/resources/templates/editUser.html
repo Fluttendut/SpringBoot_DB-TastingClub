@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit user</title>
+</head>
+<body>
+<h1>Edit user</h1>
+<!--form that has inputs for user id, user name, & favorite teacher-->
+<!--user id is set to read only-->
+<form style="margin-left: 20px" action="/edit" method="post">
+  <label for="usrID">User ID</label><br>
+  <input style="margin-bottom: 5px; color: red" type="text" id="usrID" name="usrID" th:value="${user.usrID}" readonly><br>
+  <label  for="usrName">User Name</label><br>
+  <input style="margin-bottom: 5px; " type="text" id="usrName" name="usrName" th:value="${user.usrName}" autofocus><br>
+
+  <!--could add input for editing the password here-->
+
+  <label for="favTeacher">Favorite Teacher</label><br>
+  <input style="margin-bottom: 5px" type="" id="favTeacher" name="favTeacher" th:value="${user.favTeacher}"><br>
+  <input type="submit" value="Save changes">
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring with DB</title>
+  <!--link to external css file-->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<h1>This is the user page</h1>
+<table>
+  <!--the top of the table-->
+  <thead>
+  <!--a table row-->
+  <tr>
+    <!--naming header cells of the table-->
+    <th>ID</th>
+    <th>User Name</th>
+    <th>Favorite Teacher</th>
+  </tr>
+  </thead>
+  <!--for the data of the data-->
+  <tbody>
+  <!--a table row using Thymeleaf loop "each" to fill in the data cells-->
+  <tr th:each="user : ${users}">
+    <td th:text="${user.usrID}"/>
+    <td th:text="${user.usrName}"/>
+    <td th:text="${user.favTeacher}"/>
+    <!--a button column for-->
+    <td id="btn-column">
+      <a th:href="@{'/viewUser/'+${user.usrID}}">
+        <button class="btn-view" id="btn-view">View user</button>
+      </a>
+      <a th:href="@{'/delete/'+${user.usrID}}">
+        <button class="btn-delete" id="btn-delete">Delete user</button>
+      </a>
+      <a th:href="@{'/editUser/'+${user.usrID}}">
+        <button class="btn-edit" id="btn-edit">Edit user</button>
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--Add user button-->
+<a id="btn_add" href="/addUser">
+  <button class="btn-add" id="btn-add">Add user</button>
+</a>
+</body>
+</html>
