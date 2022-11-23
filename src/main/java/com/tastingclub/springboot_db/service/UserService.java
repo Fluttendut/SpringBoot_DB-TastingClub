@@ -14,4 +14,13 @@ public class UserService {
     private UserRepo userRepo;
 
     public List<User> fetchAll() {return userRepo.fetchAll();}
+
+    public User addUser(User user) { return userRepo.addUser(user);}
+
+    public User findUserByID(int id) { return userRepo.findUserByID(id);
+    }
+
+    public boolean deleteUser(int id) { return userRepo.deleteUser(id);}
+
+    public User updateUser(int id, User user) { return userRepo.updateUser(id, user);}
 }
